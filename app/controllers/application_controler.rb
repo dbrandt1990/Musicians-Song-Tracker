@@ -24,13 +24,12 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/signup' do
-      @user = User.new(:username => params[:username] , :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation])
-      if @user.password_confirmation
-      @user.save
+      @user = User.create(:username => params[:username] , :email => params[:email], :password => params[:password])
+      if @user.id 
       session[:user_id] = @user.id
       redirect "/users"
       else
-        flash[:message] = "Passwords do not match"
+        flash[:message] = "Username or Email already exits"
         redirect "/signup"
       end
     end

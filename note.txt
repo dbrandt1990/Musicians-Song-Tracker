@@ -1,0 +1,30 @@
+User 
+  -has secure password
+  -has many songs
+email
+username
+password
+songs
+
+Song 
+  -belongs to user
+name
+video link
+tabs link 
+learned/learning boolean
+user_id 
+
+'/' welcome with loging and option to sign up
+'/signup' form to create a new user
+'/users' shows logged in user profile
+  -profile should list all the songs the user has
+  -top of the page has buttons to list ALL, learned, and learning songs
+  -BONUS: option to make songs public or private to be diplayed on a 'shared'() page
+'/song/new' opens a form to create a new song
+  -name required *
+  -video url
+  -tab url
+  -lyric url
+  -learned?
+'/song/:id/edit' opens form to edit  
+

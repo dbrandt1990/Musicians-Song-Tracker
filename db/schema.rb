@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_165558) do
+ActiveRecord::Schema.define(version: 2021_03_25_181543) do
 
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.string "video"
     t.string "tabs"
     t.integer "user_id"
+    t.boolean "learned"
+    t.string "lyrics"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.string "password_confirmation"
   end
 
 end
