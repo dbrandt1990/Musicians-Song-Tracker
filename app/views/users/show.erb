@@ -1,1 +1,26 @@
 <h1>Welcom <%=@user.username%></h1>
+<div id="users_songs_list_container">
+<%@user.songs.each do |s|%>
+    <div class="song_container">
+    <h3><%=s.name%></h3>
+
+    <%if s.video != ""%>
+        <iframe src="<%=@user.video%>" frameborder="0"></iframe>
+    <%end%>
+
+    <%if s.tabs != ""%>
+        <a href="<%@user.tabs%>"></a>
+    <%end%>
+
+    <%if s.lyrics != ""%>
+        <a href="<%@user.lyrics%>"></a>
+    <%end%>
+
+    <h5>Notes:</h5>
+    <textarea name="notes" cols="30" rows="10">
+        <%=s.notes%>
+    </textarea>
+    </div>
+<%end%>
+</div>
+<%# display users songs, have option to view or change the status of learned/learning gives and option to sort by learned/learning %>
