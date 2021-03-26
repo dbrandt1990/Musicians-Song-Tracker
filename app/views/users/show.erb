@@ -1,26 +1,39 @@
-<h1>Welcom <%=@user.username%></h1>
+<h1>Welcome, <%=@user.username%></h1>
+<a href="/songs/new"><input type="button" value="Create a New Song"></a>
 <div id="users_songs_list_container">
 <%@user.songs.each do |s|%>
+    
     <div class="song_container">
-    <h3><%=s.name%></h3>
+    <%if s.learned %>
+      <div id="song_card_heading"><h3 class="learn_status" style="color: greenyellow"><%=s.name%>: Learned</h3></div>  
+    <%else%>
+       <div id="song_card_heading"><h3 class="learn_status" style="color: salmon"><%=s.name%>: Still Learning</h3></div>
+    <%end%>
 
+    <p>Includes:
     <%if s.video != ""%>
-        <iframe src="<%=@user.video%>" frameborder="0"></iframe>
+        Video
     <%end%>
 
     <%if s.tabs != ""%>
-        <a href="<%@user.tabs%>"></a>
+        Tabs
     <%end%>
 
     <%if s.lyrics != ""%>
-        <a href="<%@user.lyrics%>"></a>
+        Lyrics
+    <%end%>
+    </p>
+
+    <%if s.notes %>
+        <p>Notes: <%=s.notes%></p>
+    <%else%>
+        <p>Notes: There are no notes for this song yet.</p>
     <%end%>
 
-    <h5>Notes:</h5>
-    <textarea name="notes" cols="30" rows="10">
-        <%=s.notes%>
-    </textarea>
-    </div>
+<a href="/songs/<%=s.id%>/edit"><input type="button" value="Edit"></a>
+<a href="/songs/<%=s.id%>"><input type="button" value="View"></a>
+<a href="/songs/<%=s.id%>/delete"><input type="button" value="Delete"></a><br>
+
 <%end%>
+<a href="/logout"><input type="button" value="Logout"></a>
 </div>
-<%# display users songs, have option to view or change the status of learned/learning gives and option to sort by learned/learning %>

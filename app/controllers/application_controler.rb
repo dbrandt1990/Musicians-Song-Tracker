@@ -15,11 +15,16 @@ class ApplicationController < Sinatra::Base
       if !logged_in?
         erb :index
       else
+        flash[:message] = "You can't do that while you are logged in."
         redirect "/users"
       end
     end
 
     get '/signup' do 
+      if logged_in?
+        flash[:message] ="You can't do that while you are logged in."
+        redirect "/users"
+      end
       erb :"/users/create_user"
     end
 
@@ -48,19 +53,15 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/logout' do 
-      # just for develpment, add checks for login for deployment
+      if logged_in?
         session.clear
+        flash[:message] = "Successful logout."
         redirect "/"
+      end
     end
 
   # helper methods
 
-        def redirect_if_not_logged_in
-          if !logged_in?
-            redirect "/?error=You have to be logged in to do that"
-          end
-        end
-    
         def logged_in?
           !!session[:user_id]
         end
@@ -69,6 +70,16 @@ class ApplicationController < Sinatra::Base
             @current_user ||= User.find(session[:user_id]) if session[:user_id]
         end
 
+        def youtube_embed(youtube_url)
+          if youtube_url[/youtu\.be\/([^\?]*)/]
+            youtube_id = $1
+          else
+            # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+            youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+            youtube_id = $5
+          end
+          %Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+        end
     # helper methods
 
 end
