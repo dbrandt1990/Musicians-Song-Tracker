@@ -1,9 +1,9 @@
 <h1>Welcome, <%=@user.username%></h1>
 <a href="/songs/new"><input type="button" value="Create a New Song"></a>
-<div id="users_songs_list_container">
+<div class="songs_list_container">
 <%@user.songs.each do |s|%>
     
-    <div class="song_container">
+    <div class="song_container" onclick="location.href='/songs/<%=s.id%>'">
     <%if s.learned %>
       <div id="song_card_heading"><h3 class="learn_status" style="color: greenyellow"><%=s.name%>: Learned</h3></div>  
     <%else%>
@@ -31,9 +31,9 @@
     <%end%>
 
 <a href="/songs/<%=s.id%>/edit"><input type="button" value="Edit"></a>
-<a href="/songs/<%=s.id%>"><input type="button" value="View"></a>
+<%# <a href="/songs/<%=s.id%>"><input type="button" value="View"></a> %>
 <a href="/songs/<%=s.id%>/delete"><input type="button" value="Delete"></a><br>
-
+</div>
 <%end%>
 <a href="/logout"><input type="button" value="Logout"></a>
 </div>

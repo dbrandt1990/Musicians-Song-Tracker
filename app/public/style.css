@@ -1,8 +1,0 @@
-#flash {
-    color: orange;
-    animation: fade 5s linear;
-  }
-  
-  @keyframes fade {
-    to { opacity: 0; }
-  }
