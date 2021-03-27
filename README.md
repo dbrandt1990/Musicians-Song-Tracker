@@ -8,7 +8,6 @@ The song objects will be organized in two categories, learned, or learning. The 
 access Songs for practice (learning) or performance (learned), and have the ability to change the status of the song as needed.
 
 ## Installation
-
 Not yet deployed for istallation.
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
