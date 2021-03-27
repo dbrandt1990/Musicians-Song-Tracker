@@ -49,6 +49,8 @@ class SongsController < ApplicationController
         tabs = params[:tabs]
         lyrics = params[:lyrics]
         notes = params[:notes]
+        learned = params[:learned]
+
         if name != ""
             @song.update(:name =>  name)
         end
@@ -63,6 +65,11 @@ class SongsController < ApplicationController
         end
         if notes != ""
             @song.update(:notes => notes)
+        end
+        if learned == 1 
+            @song.update(:learned => true)
+        else
+            @song.update(:learned => false)
         end
          erb :"/songs/show"
     end

@@ -1,7 +1,7 @@
 
 <h1>Edit <%=@song.name%></h1>
 
-<div id="song_edit_container">
+<div id="edit_song_container">
 
 <form action="/songs/<%=@song.id%>" method="post">
 <%# added hidden input for patch method and keep gettig error that _method is not a attribute of Song %>

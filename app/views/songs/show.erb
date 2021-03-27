@@ -1,10 +1,12 @@
 <h1><%=@song.name%></h1>
+
+<div id="show_buttons">
 <a href="/users"><input type="button" value="Back to Songs List"></a>
 <a href="/songs/<%=@song.id%>/edit"><input type="button" value="Edit Song"></a>
 <a href="/songs/<%=@song.id%>/delete"><input type="button" value="Delete"></a>
-<div id="users_songs_list_container">
+</div>
 
-    <div class="song_container">
+<div class="show_song_container">
     <%if @song.learned %>
         <h6 class="learn_status" style="color: green">Learned</h6> 
     <%else%>
@@ -30,5 +32,4 @@
     <%else%>
         <p>Notes: There are no notes for this song yet.</p>
     <%end%>
-    </div>
 </div>
