@@ -4,7 +4,7 @@
 <div id="edit_song_container">
 
 <form action="/songs/<%=@song.id%>" method="post">
-<%# added hidden input for patch method and keep gettig error that _method is not a attribute of Song %>
+
 <input id="hidden" type="hidden" name="_method" value="patch">
 
 <h3><%=@song.name%></h3>

@@ -1,9 +1,8 @@
 <h1>Welcome, <%=@user.username%></h1>
+<a href="/users"><input type="button" value="Back to Songs List"></a>
 <a href="/songs/new"><input type="button" value="Create a New Song"></a>
-<a href="/users/learn"><input type="button" value="Learn"></a>
-<a href="/users/practice"><input type="button" value="Practice"></a>
 <div class="songs_list_container">
-<%@user.songs.each do |s|%>
+<%@songs.each do |s|%>
     
     <div class="song_container" onclick="location.href='/songs/<%=s.id%>'">
     <%if s.learned %>

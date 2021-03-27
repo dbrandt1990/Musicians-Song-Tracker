@@ -66,7 +66,7 @@ class SongsController < ApplicationController
         if notes != ""
             @song.update(:notes => notes)
         end
-        if learned == 1 
+        if learned == "on"
             @song.update(:learned => true)
         else
             @song.update(:learned => false)
