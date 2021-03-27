@@ -2,6 +2,7 @@
 <a href="/songs/new"><input type="button" value="Create a New Song"></a>
 <a href="/users/learn"><input type="button" value="Learn"></a>
 <a href="/users/practice"><input type="button" value="Practice"></a>
+<a href="/logout"><input type="button" value="Logout"></a>
 <div class="songs_list_container">
 <%@user.songs.each do |s|%>
     
@@ -37,5 +38,4 @@
 <a href="/songs/<%=s.id%>/delete"><input type="button" value="Delete"></a><br>
 </div>
 <%end%>
-<a href="/logout"><input type="button" value="Logout"></a>
 </div>
