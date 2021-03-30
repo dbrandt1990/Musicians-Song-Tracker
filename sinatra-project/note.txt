@@ -1,0 +1,40 @@
+User 
+  -has secure password
+  -has many songss
+email
+username
+password
+songss
+
+Songs 
+  -belongs to user
+name
+video link
+tabs link 
+learned/learning boolean
+user_id 
+
+ApplicationController
+'/' welcome with loging and option to sign up
+'/signup' form to create a new user
+'/logout' logs out
+helpers for logged in/current user
+
+UsersController
+'/users' shows logged in user profile
+  -profile should list all the songs the user has
+  -top of the page has buttons to list ALL, learned, and learning songs
+  -BONUS: option to make songss public or private to be diplayed on a 'shared'() page
+BONUS: '/users/:slug' allows user to search for users and view thier page(only shows public songs if that feature is implemented)
+  BONUSBONUS: '/users/friends' gives user a friends list with links to other users show page
+
+SongsController
+'/songs/new' opens a form to create a new song
+  -name required *
+  -video url
+  -tab url
+  -lyric url
+  -learned?
+'/songs/:id/edit' opens form to edit, same as new, with fields populated
+'songs/:id/delete' maybe allow on user page and do a drop down confirmation message, else open new page with songs displayed ask for confirmation and redirect back to '/users'
+

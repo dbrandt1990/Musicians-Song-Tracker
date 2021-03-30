@@ -1,0 +1,38 @@
+
+<h1>Edit <%=@song.name%></h1>
+
+<div id="edit_song_container">
+
+<form action="/songs/<%=@song.id%>" method="post">
+
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<h3><%=@song.name%></h3>
+<input type="text" name="name" placeholder="Change Name" autofocus><br>
+
+<%if @song.learned %>
+    <h6 class="learn_status" style="color: green">Learned</h6> 
+    <label for="learned_checkbox">Update Learned Status: </label><input type="checkbox" name="learned" checked={props.completed}><br>
+<%else%>
+    <h6 class="learn_status" style="color: red">Still Learning</h6>
+    <label for="learned_checkbox">Update Learned Status: </label><input type="checkbox" name="learned"><br>
+<%end%>
+
+<%=@song.video%><br>
+<input type="text" name="video"  placeholder="Change Video URL"><br>
+
+<a href="<%=@song.tabs%>"><%=@song.tabs%></a><br>
+<input type="text" name="tabs" placeholder="Change Tabs URL"><br>
+
+<a href="<%=@song.lyrics%>"><%=@song.lyrics%></a><br>
+<input type="text" name="lyrics" placeholder="Change Lyrics URL"><br>
+
+<h4>Notes:</h4>
+<textarea name="notes" cols="30" rows="5">
+    <%=@song.notes%>
+</textarea><br>
+
+<a href="/users"><input type="button" value="Back to Songs List"></a>
+<input type="submit" name="update_song" value="Submit">
+</form>
+</div>

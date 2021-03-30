@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+}
+    #flash {
+      color: orange;
+}
+    .song_list_container {
+      display: block;
+      position: static;
+    }
+    #edit_song_container {
+      width: 75%;
+      padding: 2px 16px;
+      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2);
+      border: 2px solid lightgrey;
+}
+    .show_song_container {
+      width: 73%;
+      padding: 2px 16px;
+      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2);
+      border: 2px solid lightgrey;
+}
+    .song_container {
+      width: 40%;
+      padding: 2px 16px;
+      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border: 2px solid lightgrey;
+}
+
+.song_container:hover {
+  width:43%;
+}
+
+  </style>
+
+    <title>Layout</title>
+</head>
+<body>
+<% if flash.has?(:message) %>
+  <p id="flash"><%= flash[:message] %></p>
+<% end %>
+    <%=yield%>
+</body>
+</html>

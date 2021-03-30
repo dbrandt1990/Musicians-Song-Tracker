@@ -1,0 +1,36 @@
+<h1><%=@song.name%></h1>
+
+<div id="show_buttons">
+<a href="/users"><input type="button" value="Back to Songs List"></a>
+<a href="/songs/<%=@song.id%>/edit"><input type="button" value="Edit Song"></a>
+<a href="/songs/<%=@song.id%>/delete"><input type="button" value="Delete"></a>
+<a href="/logout"><input type="button" value="Logout"></a>
+</div>
+
+<div class="show_song_container">
+    <%if @song.learned %>
+        <h6 class="learn_status" style="color: green">Learned</h6> 
+    <%else%>
+        <h6 class="learn_status" style="color: red">Still Learning</h6>
+    <%end%>
+
+    <%if @song.video != ""%>
+        <%=@song.video%>
+    <%end%>
+
+    <%if @song.tabs != ""%>
+        <h5>Tabs</h5>
+        <a href="<%@song.tabs%>"><%=@song.name%> Tabs</a><br>
+    <%end%>
+
+    <%if @song.lyrics != ""%>
+        <h5>Lyrics</h5>
+        <a href="<%@song.lyrics%>"><%=@song.name%> Lyrics</a><br>
+    <%end%>
+
+    <%if @song.notes %>
+        <p>Notes: <%=@song.notes%></p>
+    <%else%>
+        <p>Notes: There are no notes for this song yet.</p>
+    <%end%>
+</div>
