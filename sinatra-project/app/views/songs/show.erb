@@ -20,12 +20,12 @@
 
     <%if @song.tabs != ""%>
         <h5>Tabs</h5>
-        <a href="<%@song.tabs%>"><%=@song.name%> Tabs</a><br>
+        <a href="<%=@song.tabs%>" target="_blank"><%=@song.name%> Tabs</a><br>
     <%end%>
 
     <%if @song.lyrics != ""%>
         <h5>Lyrics</h5>
-        <a href="<%@song.lyrics%>"><%=@song.name%> Lyrics</a><br>
+        <a href="<%=@song.lyrics%>" target="_blank"><%=@song.name%> Lyrics</a><br>
     <%end%>
 
     <%if @song.notes %>
