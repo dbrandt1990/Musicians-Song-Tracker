@@ -8,7 +8,12 @@ class SongsController < ApplicationController
 
     post '/songs' do
         embed_video = youtube_embed(params[:video])
-        song = Song.create(:name => params[:name], :video => embed_video,:tabs => params[:tabs],:lyrics => params[:lyrics],:learned => params[:learned])
+        if params[:learned].nil?
+            learned = false
+        else
+            learned = true
+        end
+        song = Song.create(:name => params[:name], :video => embed_video,:tabs => params[:tabs],:lyrics => params[:lyrics],:learned => learned)
         user = User.find(session[:user_id])
         user.songs << song
         redirect "/users"
