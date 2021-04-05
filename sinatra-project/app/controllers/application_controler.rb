@@ -48,6 +48,7 @@ class ApplicationController < Sinatra::Base
           redirect "/users"
         else
           flash[:message] = "Invalid Username or Password"
+          redirect "/"
         end
       end
     end
